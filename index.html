@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economía Política Comunal y Sostenibilidad Territorial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Tooltip */
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px 16px;
+            position: absolute;
+            z-index: 50;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            width: max-content;
+            max-width: 300px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Flowchart CSS */
+        .flowchart-arrow {
+            width: 2px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 auto;
+            position: relative;
+        }
+        .flowchart-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: -4px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.3) transparent transparent transparent;
+        }
+        @media (min-width: 1024px) {
+            .flowchart-arrow-horizontal {
+                width: 40px;
+                height: 2px;
+                background: rgba(255, 255, 255, 0.3);
+                margin: auto 0;
+            }
+            .flowchart-arrow-horizontal::after {
+                top: -4px;
+                right: -5px;
+                bottom: auto;
+                left: auto;
+                border-color: transparent transparent transparent rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Vertical Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #ef4444; /* red-500 */
+            border: 3px solid #facc15; /* yellow-400 */
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left::after { right: -8px; }
+        .right::after { left: -8px; }
+        
+        @media (max-width: 767px) {
+            .timeline-container::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; text-align: left; }
+            .left, .right { left: 0; }
+            .left::after, .right::after { left: 23px; }
+        }
+
+        /* Tabs Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-100 font-sans antialiased min-h-screen relative selection:bg-red-500 selection:text-white">
+
+    <!-- Fondo Patriota Sobrio y Elegante (Glassmorphism bg) -->
+    <div class="fixed inset-0 z-[-2] bg-gradient-to-br from-red-950 via-slate-900 to-yellow-950 opacity-90"></div>
+    <div class="fixed inset-0 z-[-1] opacity-10 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+    <!-- Navegación Sticky -->
+    <nav class="fixed w-full z-40 glass border-b-0 top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tight text-yellow-500 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fas fa-star text-red-500 text-sm"></i> 
+                    <span class="text-white">PSUV</span> Lara
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 text-sm font-medium">
+                        <a href="#premisa" class="hover:text-yellow-400 text-gray-200 transition-colors">Premisa Ideológica</a>
+                        <a href="#vd" class="hover:text-yellow-400 text-gray-200 transition-colors">VD y Guerra</a>
+                        <a href="#punto" class="hover:text-yellow-400 text-gray-200 transition-colors">Punto y Círculo</a>
+                        <a href="#sala" class="hover:text-yellow-400 text-gray-200 transition-colors">Sala de Gobierno</a>
+                        <a href="#doctrina" class="hover:text-yellow-400 text-gray-200 transition-colors">Doctrina</a>
+                        <a href="#historia" class="hover:text-yellow-400 text-gray-200 transition-colors">Historia</a>
+                    </div>
+                </div>
+                <!-- Menú Móvil Botón -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden glass-dark absolute w-full left-0 top-16 shadow-2xl">
+            <div class="px-4 pt-2 pb-4 space-y-2 text-sm font-medium text-center">
+                <a href="#premisa" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">Premisa Ideológica</a>
+                <a href="#vd" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">VD y Guerra Económica</a>
+                <a href="#punto" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">Punto y Círculo</a>
+                <a href="#sala" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">Sala de Gobierno Comunal</a>
+                <a href="#doctrina" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">Doctrina de Seguridad</a>
+                <a href="#historia" class="block px-3 py-3 hover:bg-white/10 rounded-md text-white">Historia y Llamado</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN 1: Cabecera y Premisa Ideológica -->
+    <section id="premisa" class="pt-32 pb-20 px-4 max-w-7xl mx-auto min-h-[90vh] flex flex-col items-center justify-center relative">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-4 leading-tight drop-shadow-lg">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">Economía Política Comunal</span> <br/>
+            <span class="text-white">y Sostenibilidad Territorial</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl text-center text-red-400 mb-12 font-semibold uppercase tracking-widest drop-shadow-md">
+            Las 7T Rumbo al Futuro
+        </h2>
+
+        <!-- Hero Banner (Idea Central) -->
+        <div class="glass p-8 md:p-12 rounded-2xl w-full max-w-4xl text-center relative overflow-hidden mb-20 shadow-[0_0_40px_rgba(220,38,38,0.15)]">
+            <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-yellow-400 via-blue-500 to-red-500"></div>
+            <p class="text-2xl md:text-3xl font-medium italic leading-relaxed text-gray-100">
+                "No hay proyecto político sostenible sin base material que lo sustente. No hay base material que resista sin conciencia que la defienda".
+            </p>
+        </div>
+
+        <!-- Concepto de Codependencia Asimétrica -->
+        <div class="w-full max-w-5xl">
+            <h3 class="text-2xl font-bold mb-10 text-center border-b border-white/20 pb-4 inline-block mx-auto w-full">Concepto de Codependencia Asimétrica</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-stretch relative">
+                <!-- Infraestructura -->
+                <div class="glass p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border-t-4 border-yellow-500 group">
+                    <div class="text-yellow-400 text-4xl mb-4 transform group-hover:rotate-180 transition-transform duration-700"><i class="fas fa-cogs"></i></div>
+                    <h4 class="text-2xl font-bold mb-2 text-white">Infraestructura</h4>
+                    <p class="text-sm font-semibold text-yellow-300 uppercase tracking-wide mb-4">(Base material, servicios, producción)</p>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        Se determinan mutuamente con la superestructura. Sin base material (agua, luz, comida) la conciencia se desmorona; las condiciones materiales objetivas son necesarias para la vida del pueblo.
+                    </p>
+                </div>
+                
+                <!-- Ícono central de ciclo -->
+                <div class="hidden md:flex justify-center items-center text-4xl text-white/30 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <i class="fas fa-sync-alt animate-spin-slow"></i>
+                </div>
+                
+                <!-- Superestructura -->
+                <div class="glass p-8 rounded-xl hover:bg-white/10 transition-all duration-300 border-t-4 border-red-500 group">
+                    <div class="text-red-400 text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300"><i class="fas fa-users-cog"></i></div>
+                    <h4 class="text-2xl font-bold mb-2 text-white">Superestructura</h4>
+                    <p class="text-sm font-semibold text-red-300 uppercase tracking-wide mb-4">(Conciencia, organización)</p>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        Se determinan mutuamente con la infraestructura. Sin organización, los recursos son arrebatados. La conciencia política y la organización popular defienden y administran la base material lograda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: La Variable Determinante (VD) y la Guerra Económica -->
+    <section id="vd" class="py-20 px-4 bg-black/20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">La Variable Determinante (VD) y la Guerra Económica</h2>
+                
+                <!-- Tooltip Interactivo -->
+                <div class="inline-block relative tooltip cursor-help border-b border-dashed border-yellow-400 pb-1">
+                    <span class="text-xl md:text-2xl font-semibold text-yellow-400 flex items-center gap-2">
+                        ¿Qué es la Variable Determinante? <i class="fas fa-info-circle text-sm opacity-70"></i>
+                    </span>
+                    <span class="tooltip-text">
+                        Conjunto de condiciones materiales de existencia (Educación, Servicios, Salud, Vivienda, Economía Comunal) que garantizan la sostenibilidad de la Revolución.
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Tarjetas Informativas: El Cerco Geopolítico -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 text-red-400 flex items-center gap-3">
+                        <i class="fas fa-ban"></i> El Cerco Geopolítico
+                    </h3>
+                    <p class="text-gray-300 mb-6 font-medium text-lg">Mecanismos de asfixia implementados contra el país:</p>
+                    <div class="space-y-4">
+                        <div class="glass p-5 rounded-lg border-l-4 border-yellow-500 hover:translate-x-2 transition-transform">
+                            <h4 class="font-bold text-lg mb-1 text-white"><i class="fas fa-university text-yellow-400 w-6"></i> Sanciones Financieras</h4>
+                            <p class="text-sm text-gray-300 pl-7">Exclusión del SWIFT, congelamiento de activos.</p>
+                        </div>
+                        <div class="glass p-5 rounded-lg border-l-4 border-blue-500 hover:translate-x-2 transition-transform">
+                            <h4 class="font-bold text-lg mb-1 text-white"><i class="fas fa-oil-well text-blue-400 w-6"></i> Sanciones Petroleras</h4>
+                            <p class="text-sm text-gray-300 pl-7">Prohibición de exportación y robo de buques.</p>
+                        </div>
+                        <div class="glass p-5 rounded-lg border-l-4 border-red-500 hover:translate-x-2 transition-transform">
+                            <h4 class="font-bold text-lg mb-1 text-white"><i class="fas fa-crosshairs text-red-400 w-6"></i> Guerra Cognitiva y Amenazas</h4>
+                            <p class="text-sm text-gray-300 pl-7">Incluyendo la Invasión militar del 3 de enero 2026.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico Integrado PIB -->
+                <div class="glass p-2 rounded-2xl flex flex-col items-center justify-center relative shadow-2xl group">
+                    <div class="overflow-hidden rounded-xl bg-white/5 w-full">
+                        <img src="./PIB Venezolano Percapita 1985-2024_2.png" alt="Gráfico del PIB Venezolano Per cápita 1985-2024" class="w-full h-auto object-cover cursor-zoom-in hover:scale-105 transition-transform duration-500" onclick="openModal(this.src)">
+                    </div>
+                    <div class="absolute -bottom-6 w-11/12">
+                        <blockquote class="glass bg-slate-900/90 border-l-4 border-yellow-400 p-4 rounded text-center text-lg md:text-xl font-serif italic text-white shadow-lg">
+                            "El debate no es técnico, sino ético y político. ¿Qué tipo de sociedad queremos construir?"
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: La Contraofensiva - Estrategia del "Punto y Círculo" -->
+    <section id="punto" class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="glass-dark rounded-3xl p-8 md:p-12 lg:p-16 relative shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10">
+            <!-- Icono Decorativo -->
+            <div class="absolute top-6 right-6 lg:-top-8 lg:-right-8 text-7xl text-white/5 opacity-50"><i class="fas fa-bullseye"></i></div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-white">La Contraofensiva - Estrategia del "Punto y Círculo"</h2>
+            
+            <div class="bg-red-900/30 border border-red-500/30 rounded-lg p-6 mb-12 max-w-3xl mx-auto text-center">
+                <p class="text-lg md:text-xl leading-relaxed">
+                    El <strong class="text-red-400 font-bold">"Punto"</strong> es el espacio físico de acción y el <strong class="text-yellow-400 font-bold">"Círculo"</strong> su área de influencia productiva y defensiva.
+                </p>
+            </div>
+
+            <h3 class="text-2xl text-center font-bold mb-8 text-gray-200">Componentes Prácticos de la Economía Comunal</h3>
+
+            <!-- Grid Tarjetas Interactivos -->
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- Producción -->
+                <div class="glass p-6 rounded-2xl w-full sm:w-[45%] lg:w-[30%] group cursor-default hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_10px_20px_rgba(59,130,246,0.2)] hover:border-blue-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-5 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Producción</h4>
+                    <p class="text-sm text-gray-300">Rubros estratégicos comunales.</p>
+                </div>
+
+                <!-- Distribución -->
+                <div class="glass p-6 rounded-2xl w-full sm:w-[45%] lg:w-[30%] group cursor-default hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_10px_20px_rgba(34,197,94,0.2)] hover:border-green-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-14 h-14 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 mb-5 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Distribución</h4>
+                    <p class="text-sm text-gray-300">Circuitos cortos sin intermediarios.</p>
+                </div>
+
+                <!-- Consumo -->
+                <div class="glass p-6 rounded-2xl w-full sm:w-[45%] lg:w-[30%] group cursor-default hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_10px_20px_rgba(234,179,8,0.2)] hover:border-yellow-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-14 h-14 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400 mb-5 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Consumo</h4>
+                    <p class="text-sm text-gray-300">Ferias y mercados locales.</p>
+                </div>
+
+                <!-- Financiamiento -->
+                <div class="glass p-6 rounded-2xl w-full sm:w-[45%] lg:w-[30%] group cursor-default hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_10px_20px_rgba(168,85,247,0.2)] hover:border-purple-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mb-5 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Financiamiento</h4>
+                    <p class="text-sm text-gray-300">Fondos comunales.</p>
+                </div>
+
+                <!-- Formación -->
+                <div class="glass p-6 rounded-2xl w-full sm:w-[45%] lg:w-[30%] group cursor-default hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_10px_20px_rgba(239,68,68,0.2)] hover:border-red-500/50 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-14 h-14 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 mb-5 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 text-white">Formación</h4>
+                    <p class="text-sm text-gray-300">Escuelas de cuadros productivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: La Sala de Gobierno Comunal (Gestión y Control) -->
+    <section id="sala" class="py-20 px-4 bg-black/20 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">La Sala de Gobierno Comunal (Gestión y Control)</h2>
+                <div class="inline-block glass bg-yellow-500/10 border border-yellow-500/20 px-6 py-3 rounded-full">
+                    <p class="text-lg font-medium text-yellow-400">
+                        No es burocracia, es un espacio de poder popular y articulación Estado-Pueblo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- Diagrama de flujo Ciclo de Trabajo CSS -->
+                <div class="lg:col-span-7 glass rounded-2xl p-8">
+                    <h3 class="text-xl font-bold mb-8 text-center text-gray-200 border-b border-white/10 pb-4">Ciclo de Trabajo Permanente</h3>
+                    
+                    <div class="flex flex-col lg:flex-row items-center justify-between w-full relative">
+                        <!-- Paso 1 -->
+                        <div class="flex flex-col items-center text-center w-full lg:w-1/4 p-2 z-10">
+                            <div class="w-14 h-14 rounded-full bg-blue-600 border-2 border-white/20 flex items-center justify-center font-bold text-2xl mb-4 shadow-[0_0_20px_rgba(37,99,235,0.6)] text-white">1</div>
+                            <p class="text-sm font-bold text-white">Diagnóstico <br>permanente de la VD.</p>
+                        </div>
+                        
+                        <div class="flowchart-arrow lg:flowchart-arrow-horizontal hidden lg:block"></div>
+                        <div class="h-6 w-0.5 bg-white/30 lg:hidden my-2"></div>
+
+                        <!-- Paso 2 -->
+                        <div class="flex flex-col items-center text-center w-full lg:w-1/4 p-2 z-10">
+                            <div class="w-14 h-14 rounded-full bg-yellow-500 border-2 border-white/20 flex items-center justify-center font-bold text-2xl mb-4 shadow-[0_0_20px_rgba(234,179,8,0.6)] text-slate-900">2</div>
+                            <p class="text-sm font-bold text-white">Identificación <br>de alertas.</p>
+                        </div>
+
+                        <div class="flowchart-arrow lg:flowchart-arrow-horizontal hidden lg:block"></div>
+                        <div class="h-6 w-0.5 bg-white/30 lg:hidden my-2"></div>
+
+                        <!-- Paso 3 -->
+                        <div class="flex flex-col items-center text-center w-full lg:w-1/4 p-2 z-10">
+                            <div class="w-14 h-14 rounded-full bg-red-600 border-2 border-white/20 flex items-center justify-center font-bold text-2xl mb-4 shadow-[0_0_20px_rgba(220,38,38,0.6)] text-white">3</div>
+                            <p class="text-sm font-bold text-white mb-1">Respuesta inmediata</p>
+                            <p class="text-xs text-gray-400 font-normal">(movilización popular).</p>
+                        </div>
+
+                        <div class="flowchart-arrow lg:flowchart-arrow-horizontal hidden lg:block"></div>
+                        <div class="h-6 w-0.5 bg-white/30 lg:hidden my-2"></div>
+
+                        <!-- Paso 4 -->
+                        <div class="flex flex-col items-center text-center w-full lg:w-1/4 p-2 z-10">
+                            <div class="w-14 h-14 rounded-full bg-green-600 border-2 border-white/20 flex items-center justify-center font-bold text-2xl mb-4 shadow-[0_0_20px_rgba(22,163,74,0.6)] text-white">4</div>
+                            <p class="text-sm font-bold text-white">Control y <br>evaluación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Respuesta al Bloqueo -->
+                <div class="lg:col-span-5 h-full">
+                    <div class="glass p-8 rounded-2xl border-t-4 border-red-500 h-full flex flex-col justify-center bg-gradient-to-br from-red-900/20 to-transparent relative overflow-hidden">
+                        <i class="fas fa-shield-alt absolute -right-4 -bottom-4 text-9xl text-red-500/10"></i>
+                        <h4 class="text-2xl font-bold mb-4 flex items-center text-white">
+                            <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i> Respuesta al Bloqueo
+                        </h4>
+                        <p class="text-base md:text-lg leading-relaxed text-gray-300 relative z-10">
+                            Destaca que frente a la falta de repuestos y recursos, la Sala <strong class="text-yellow-400">prioriza</strong>, <strong class="text-yellow-400">organiza el mantenimiento popular</strong> e <strong class="text-yellow-400">informa a la comunidad</strong> para evitar el caos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: Doctrina de Seguridad, Poder y Desarrollo de la Nación -->
+    <section id="doctrina" class="py-24 px-4 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Doctrina de Seguridad, Poder y Desarrollo de la Nación</h2>
+
+        <!-- Componente de Pestañas (Tabs) -->
+        <div class="glass rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <!-- Encabezado de Pestañas -->
+            <div class="flex border-b border-white/10 bg-black/40 overflow-x-auto hide-scrollbar">
+                <button class="tab-btn flex-1 min-w-[200px] px-6 py-5 font-bold text-sm md:text-base whitespace-nowrap hover:bg-white/5 transition-colors focus:outline-none border-b-2 border-red-500 text-white bg-white/5" onclick="switchTab(event, 'tab1')">
+                    <i class="fas fa-shield-virus mr-2"></i> Seguridad y Defensa
+                </button>
+                <button class="tab-btn flex-1 min-w-[200px] px-6 py-5 font-bold text-sm md:text-base whitespace-nowrap hover:bg-white/5 transition-colors focus:outline-none border-b-2 border-transparent text-gray-400" onclick="switchTab(event, 'tab2')">
+                    <i class="fas fa-project-diagram mr-2"></i> Triángulo del Poder
+                </button>
+                <button class="tab-btn flex-1 min-w-[200px] px-6 py-5 font-bold text-sm md:text-base whitespace-nowrap hover:bg-white/5 transition-colors focus:outline-none border-b-2 border-transparent text-gray-400" onclick="switchTab(event, 'tab3')">
+                    <i class="fas fa-cogs mr-2"></i> Sistema Productivo
+                </button>
+            </div>
+
+            <!-- Contenido de Pestañas -->
+            <div class="p-6 md:p-10 bg-slate-900/50">
+                <!-- Tab 1: Seguridad y Defensa -->
+                <div id="tab1" class="tab-content block animate-fadeIn">
+                    <div class="grid lg:grid-cols-5 gap-10 items-center">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-400 border-l-4 border-yellow-400 pl-4">El Triángulo de la Seguridad</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Explica la relación entre Desarrollo Integral y Defensa Integral (ámbitos económico, social, político, cultural, geográfico, ambiental y militar).
+                            </p>
+                            <div class="flex gap-2">
+                                <span class="bg-red-900/50 text-red-300 text-xs px-3 py-1 rounded-full border border-red-500/30">Defensa</span>
+                                <span class="bg-yellow-900/50 text-yellow-300 text-xs px-3 py-1 rounded-full border border-yellow-500/30">Desarrollo</span>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+                            <img src="./Triangulo de la Seguridad_2.png" alt="Triángulo de la Seguridad de la Nación" class="w-full rounded-xl border border-white/10 shadow-lg cursor-zoom-in hover:scale-[1.02] transition-transform bg-white" onclick="openModal(this.src)">
+                            <img src="./Esquema del Triangulo de la Seguridad_2.png" alt="Esquema Detallado del Triángulo de la Seguridad" class="w-full rounded-xl border border-white/10 shadow-lg cursor-zoom-in hover:scale-[1.02] transition-transform bg-white" onclick="openModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Triángulo del Poder -->
+                <div id="tab2" class="tab-content hidden animate-fadeIn">
+                    <div class="grid lg:grid-cols-5 gap-10 items-center">
+                        <div class="lg:col-span-3 order-2 lg:order-1">
+                            <img src="./Triangulo del Poder_2.png" alt="El Triángulo del Poder: Logística, Estrategia y Táctica" class="w-full rounded-xl border border-white/10 shadow-lg cursor-zoom-in hover:scale-[1.02] transition-transform bg-white max-w-2xl mx-auto" onclick="openModal(this.src)">
+                        </div>
+                        <div class="lg:col-span-2 order-1 lg:order-2">
+                            <h3 class="text-2xl font-bold mb-4 text-red-400 border-l-4 border-red-400 pl-4">La Intersección del Poder</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                Representa la intersección crítica entre <strong class="text-white">Logística, Estrategia y Táctica</strong>. La materialización del poder popular y nacional requiere que estos tres elementos se articulen en el territorio para hacer efectiva la defensa y el desarrollo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Sistema Productivo -->
+                <div id="tab3" class="tab-content hidden animate-fadeIn">
+                     <div class="grid lg:grid-cols-5 gap-10 items-center">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-400 border-l-4 border-blue-400 pl-4">Desarrollo Integral y Factores de Poder</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                Muestra cómo los factores de poder (demográficos, geográficos, militares) sostienen las necesidades materiales e inmateriales bajo la <strong class="text-yellow-400">intersubjetividad popular</strong>.
+                            </p>
+                        </div>
+                        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+                            <img src="./Desarrollo Integral de la Nacion_2.png" alt="Esquema del Desarrollo Integral de la Nación" class="w-full rounded-xl border border-white/10 shadow-lg cursor-zoom-in hover:scale-[1.02] transition-transform bg-white" onclick="openModal(this.src)">
+                            <img src="./Sistema Productivo de la Nacion_2.png" alt="Esquema del Sistema Productivo de la Nación" class="w-full rounded-xl border border-white/10 shadow-lg cursor-zoom-in hover:scale-[1.02] transition-transform bg-white" onclick="openModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: Evolución Histórica y Llamado a la Acción -->
+    <section id="historia" class="py-24 px-4 bg-black/30 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center text-white">Evolución Histórica y Golpe de Timón</h2>
+
+            <!-- Línea de Tiempo (Timeline) -->
+            <div class="timeline-container mb-24">
+                
+                <div class="timeline-item left">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+                        <h3 class="font-bold text-xl text-yellow-400 mb-2">Libro Azul (Yare)</h3>
+                        <p class="text-gray-300 text-sm">Raíz originaria del Proyecto Bolivariano y la Democracia Protagónica.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+                        <h3 class="font-bold text-xl text-red-400 mb-2">1996 - Agenda Alternativa Bolivariana</h3>
+                        <p class="text-gray-300 text-sm">Respuesta contrahegemónica al recetario neoliberal del FMI.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+                        <h3 class="font-bold text-xl text-blue-400 mb-2">1999 - CRBV</h3>
+                        <p class="text-gray-300 text-sm">Constitución de la República Bolivariana de Venezuela, el nuevo pacto social.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+                        <h3 class="font-bold text-xl text-green-400 mb-2">2001 - Ley de Tierras</h3>
+                        <p class="text-gray-300 text-sm">Democratización de la tierra y guerra declarada al latifundio.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform">
+                        <h3 class="font-bold text-xl text-yellow-500 mb-2">Planes de la Patria</h3>
+                        <p class="text-gray-300 text-sm">Planificación socialista y testamento político del Comandante Chávez.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="glass p-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform border-2 border-red-500/50">
+                        <h3 class="font-bold text-xl text-red-500 mb-2">Las 7T</h3>
+                        <p class="text-white font-medium text-sm">Las Siete Transformaciones rumbo al futuro.</p>
+                    </div>
+                </div>
+
+                <!-- Imagen Integrada de la Línea de Tiempo -->
+                <div class="w-full text-center mt-16 px-4">
+                    <img src="./Planes de Desarrollo Economico, Politico y Social de la Nacion_2.png" alt="Infografía de los Planes de Desarrollo Económico, Político y Social de la Nación" class="w-full max-w-4xl mx-auto rounded-xl shadow-[0_0_30px_rgba(0,0,0,0.8)] border border-white/20 cursor-zoom-in hover:opacity-90 transition-opacity bg-white" onclick="openModal(this.src)">
+                </div>
+            </div>
+
+            <!-- El Golpe de Timón -->
+            <div class="glass border-2 border-red-600/40 p-8 md:p-12 rounded-3xl flex flex-col lg:flex-row gap-10 items-center mb-24 relative overflow-hidden bg-gradient-to-br from-black/60 to-red-900/30">
+                <i class="fas fa-ship absolute -left-10 -bottom-10 opacity-5 text-9xl text-white transform -rotate-12"></i>
+                
+                <div class="w-full lg:w-5/12 z-10 shrink-0">
+                    <img src="./Golpe de Timon_2.jpg" alt="Portada del Golpe de Timón de Hugo Chávez" class="w-full rounded-xl shadow-2xl border border-white/20 cursor-zoom-in hover:scale-105 transition-transform duration-300" onclick="openModal(this.src)">
+                </div>
+                
+                <div class="w-full lg:w-7/12 z-10">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">El Golpe de Timón</h3>
+                    <blockquote class="text-lg md:text-xl italic text-gray-200 leading-relaxed pl-6 border-l-4 border-yellow-500 bg-white/5 py-4 pr-4 rounded-r-lg">
+                        "El patrón de medición -dice Mészáros- de los logros socialistas es: hasta qué grado las medidas y políticas adoptadas contribuyen activamente a la constitución y consolidación bien arraigada de un modo sustancialmente democrático, de <strong class="text-red-400 font-bold">control social</strong> y <strong class="text-yellow-400 font-bold">autogestión general</strong>."
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Botón Call to Action -->
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="glass bg-gradient-to-b from-red-900/80 to-slate-900/90 p-8 md:p-12 rounded-3xl shadow-[0_0_50px_rgba(220,38,38,0.2)] border border-red-500/30">
+                    <p class="text-xl md:text-2xl font-bold mb-10 text-white leading-relaxed">
+                        "Este es el momento de construir poder popular desde abajo. Activemos las Salas de Gobierno Comunal en el estado Lara. La revolución se defiende produciendo, organizando y resistiendo en el territorio".
+                    </p>
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gradient-to-r from-red-700 to-red-500 hover:from-red-600 hover:to-red-400 text-white font-extrabold py-4 px-10 rounded-full text-xl shadow-[0_0_20px_rgba(220,38,38,0.6)] transition-all transform hover:scale-105 active:scale-95 focus:outline-none ring-4 ring-red-500/30 uppercase tracking-wide">
+                        ¡Venceremos! <i class="fas fa-fist-raised ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 pt-10 pb-8 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-gray-300 text-sm md:text-base mb-3 font-medium">
+                Diseño y desarrollo web por <a href="https://linktr.ee/ejavierds" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:text-yellow-400 transition-colors font-bold underline decoration-yellow-500/50 underline-offset-4">ejavierds</a>
+            </p>
+            <p class="text-gray-500 text-xs md:text-sm">
+                Ing. Camillo Di Cola Licencia CC BY-NC-SA 4.0 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal para Imágenes -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4 md:p-8 backdrop-blur-md transition-opacity duration-300 opacity-0" onclick="closeModal(event)">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <button class="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-red-500 text-5xl cursor-pointer transition-colors z-[101] focus:outline-none" onclick="closeModal(event, true)">&times;</button>
+            <img id="modalImg" src="" class="max-h-full max-w-full rounded-lg shadow-2xl object-contain" alt="Vista ampliada">
+        </div>
+    </div>
+
+    <!-- Scripts de Interacción -->
+    <script>
+        // Toggle Menú Móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer click en un enlace
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica de Pestañas (Tabs)
+        function switchTab(evt, tabId) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+                tab.classList.remove('block');
+            });
+            // Resetear estilos de botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('border-red-500', 'text-white', 'bg-white/5');
+                btn.classList.add('border-transparent', 'text-gray-400');
+            });
+            // Mostrar contenido activo
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.remove('hidden');
+            activeTab.classList.add('block');
+            // Resaltar botón activo
+            evt.currentTarget.classList.remove('border-transparent', 'text-gray-400');
+            evt.currentTarget.classList.add('border-red-500', 'text-white', 'bg-white/5');
+        }
+
+        // Lógica del Modal de Imágenes
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+
+        window.openModal = function(src) {
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            // Pequeño retardo para permitir que la transición CSS surta efecto
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+        }
+
+        window.closeModal = function(e, force = false) {
+            // Cerrar si se forzó (botón X) o si el clic fue en el fondo del modal
+            if (force || e.target === modal) {
+                modal.classList.remove('opacity-100');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modalImg.src = '';
+                }, 300); // Coincide con la duración de la transición
+                document.body.style.overflow = 'auto'; // Restaurar scroll
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event){
+            if(event.key === "Escape" && !modal.classList.contains('hidden')){
+                closeModal(event, true);
+            }
+        });
+    </script>
+</body>
+</html>
