@@ -74,5 +74,5 @@ Para que el visor y la página funcionen correctamente, los siguientes archivos 
 ## 📄 Créditos y Licencia
 
 *   **Diseño y Desarrollo Web:** [ejavierds](https://linktr.ee/ejavierds)
-*   **Autor Intelectual/Contenido:** Ing. Camillo Di Cola
+*   **Autor Intelectual/Contenido:** Ing. Camillo Di Cola (04169106275 | camillodicola@gmail.com)
 *   **Licencia:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es) (Atribución - NoComercial - CompartirIgual 4.0 Internacional). 2026.
